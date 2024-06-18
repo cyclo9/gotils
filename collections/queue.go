@@ -1,6 +1,6 @@
 package collections
 
-import utils "github.com/cyclo9/goutils"
+import utils "github.com/cyclo9/gotils"
 
 type Queue[T any] struct {
 	list []T

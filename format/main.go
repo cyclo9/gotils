@@ -3,7 +3,7 @@ package format
 import (
 	"time"
 
-	utils "github.com/cyclo9/goutils"
+	utils "github.com/cyclo9/gotils"
 )
 
 // Formats Unix time in seconds to "15:04:05"

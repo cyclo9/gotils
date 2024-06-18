@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"net/url"
 
-	utils "github.com/cyclo9/goutils"
+	utils "github.com/cyclo9/gotils"
 )
 
 // Send an HTTP GET request
