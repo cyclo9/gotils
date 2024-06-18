@@ -1,6 +1,6 @@
 package collections
 
-import utils "github.com/cyclo9/gotils"
+import "github.com/cyclo9/gotils"
 
 type Queue[T any] struct {
 	list []T
@@ -18,7 +18,7 @@ func (q *Queue[T]) Enqueue(item T) {
 
 func (q *Queue[T]) Dequeue() (item T, ok bool) {
 	if len(q.list) == 0 {
-		return utils.ZeroValue[T](), false
+		return gotils.ZeroValue[T](), false
 	}
 
 	item = q.list[0]

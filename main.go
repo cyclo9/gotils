@@ -1,4 +1,4 @@
-package utils
+package gotils
 
 import (
 	"encoding/json"
