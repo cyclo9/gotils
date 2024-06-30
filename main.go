@@ -23,7 +23,7 @@ func ZeroValue[T any]() T {
 	return zeroValue
 }
 
-func WriteJSONToFile(filepath string, data interface{}) {
+func WriteJSONToFile(filepath string, data any) {
 	file, err := os.Create(filepath)
 	HandleErr(err, "creating file")
 	defer file.Close()
@@ -31,4 +31,13 @@ func WriteJSONToFile(filepath string, data interface{}) {
 	encoder := json.NewEncoder(file)
 	err = encoder.Encode(data)
 	HandleErr(err, "writing to file")
+}
+
+// Map applies a function f to each element of a slice and returns a new slice with the results.
+func Map[T, U any](f func(T) U, slice []T) []U {
+	result := make([]U, len(slice))
+	for i, v := range slice {
+		result[i] = f(v)
+	}
+	return result
 }
