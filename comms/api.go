@@ -22,11 +22,13 @@ func GET(baseUrl string, params url.Values) []byte {
 	return body
 }
 
-func POST(baseUrl string, data map[string]any) []byte {
+func POST(baseUrl string, params url.Values, data map[string]any) []byte {
+	fullUrl := fmt.Sprintf("%s?%s", baseUrl, params.Encode())
+
 	dataBytes, err := json.Marshal(data)
 	gotils.HandleErr(err, "marshalling data")
 
-	res, err := http.Post(baseUrl, "application/json", bytes.NewBuffer(dataBytes))
+	res, err := http.Post(fullUrl, "application/json", bytes.NewBuffer(dataBytes))
 	gotils.HandleErr(err, "making POST request")
 
 	defer res.Body.Close()
