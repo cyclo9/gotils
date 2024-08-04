@@ -41,3 +41,9 @@ func Map[T, U any](f func(T) U, slice []T) []U {
 	}
 	return result
 }
+
+// Rounds a float to a certain decimal place
+func Round(value float64, places int) float64 {
+	shift := math.Pow(10, float64(places))
+	return math.Round(value*shift) / shift
+}
